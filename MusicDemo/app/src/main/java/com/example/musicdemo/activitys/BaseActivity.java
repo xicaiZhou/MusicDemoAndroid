@@ -32,7 +32,7 @@ public class BaseActivity extends Activity implements View.OnClickListener {
 
         switch (view.getId()){
             case R.id.navBar_left:
-                Log.i(TAG, "navBar_left");
+                Log.w(TAG, "navBar_left");
                 break;
             case R.id.navBar_right:
                 Log.i(TAG, "navBar_right");

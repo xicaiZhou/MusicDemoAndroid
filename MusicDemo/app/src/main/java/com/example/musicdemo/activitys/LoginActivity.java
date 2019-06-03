@@ -15,6 +15,6 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void initView(){
-        initNavBar(false,"登录",false);
+        initNavBar(true,"登录",false);
     }
 }
