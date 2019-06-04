@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!--drawable中的图形可以为oval(椭圆)，ring（圆环），rectangle(长方形),line(线段)-->
+    <!--corners:圆角-->
+    <corners android:radius="@dimen/corners"/>
+    <!--solid:填充-->
+    <solid android:color="@color/mainColor"/>
+    <!--stroke:描边-->
+</shape>

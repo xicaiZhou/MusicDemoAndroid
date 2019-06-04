@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--declare-styleable:自定义控件属性-->
+    <declare-styleable name="InputView">
+        <!--reference:表示iuput_icon类型为某一资源ID-->
+        <attr name="input_icon" format="reference"></attr>
+        <attr name="input_hint" format="string"></attr>
+        <attr name="is_password" format="boolean"></attr>
+    </declare-styleable>
+</resources>

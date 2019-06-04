@@ -3,15 +3,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".activitys.LoginActivity">
 
 
     <include layout="@layout/nav_bar"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp"
+        android:src="@mipmap/app"/>
+
+    <com.example.musicdemo.views.InputView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/inputViewHeight"
+        app:input_icon="@mipmap/phone"
+        app:input_hint="请输入手机号"
+        android:layout_marginTop="20dp">
+    </com.example.musicdemo.views.InputView>
+
+    <View style="@style/line"/>
+
+    <com.example.musicdemo.views.InputView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/inputViewHeight"
+        app:input_icon="@mipmap/password"
+        app:input_hint="请输入密码"
+        app:is_password="true"
+        android:layout_marginTop="10dp">
+    </com.example.musicdemo.views.InputView>
+    <View style="@style/line"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="48sp"
-        android:text="activity"/>
-
+        android:layout_gravity="center_horizontal"
+        android:text="前往注册"
+        android:textSize="@dimen/infoSize"
+        android:textColor="@color/mainColor"
+        android:onClick="onRegisterClick"/>
 </LinearLayout>
