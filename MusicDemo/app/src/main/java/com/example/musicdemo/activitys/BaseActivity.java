@@ -1,6 +1,7 @@
 package com.example.musicdemo.activitys;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,6 +26,7 @@ public class BaseActivity extends Activity implements View.OnClickListener {
        title.setText(titleText);
 
        leftIM.setOnClickListener(this);
+       rightIM.setOnClickListener(this);
     }
 
     @Override
@@ -33,9 +35,11 @@ public class BaseActivity extends Activity implements View.OnClickListener {
         switch (view.getId()){
             case R.id.navBar_left:
                 Log.w(TAG, "navBar_left");
+                onBackPressed();
                 break;
             case R.id.navBar_right:
-                Log.i(TAG, "navBar_right");
+                Intent intent = new Intent(this, MineActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;

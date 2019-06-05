@@ -17,6 +17,7 @@
         android:src="@mipmap/app"/>
 
     <com.example.musicdemo.views.InputView
+        android:id="@+id/input_Phone"
         android:layout_width="match_parent"
         android:layout_height="@dimen/inputViewHeight"
         app:input_icon="@mipmap/phone"
@@ -27,12 +28,13 @@
     <View style="@style/line"/>
 
     <com.example.musicdemo.views.InputView
+        android:id="@+id/input_Password"
         android:layout_width="match_parent"
         android:layout_height="@dimen/inputViewHeight"
         app:input_icon="@mipmap/password"
         app:input_hint="请输入密码"
         app:is_password="true"
-        android:layout_marginTop="10dp">
+        >
     </com.example.musicdemo.views.InputView>
     <View style="@style/line"/>
 
@@ -44,4 +46,8 @@
         android:textSize="@dimen/infoSize"
         android:textColor="@color/mainColor"
         android:onClick="onRegisterClick"/>
+    <Button style="@style/commit_btn"
+        android:layout_marginTop="@dimen/marginSize"
+        android:text="登  录"
+        android:onClick="toLogin"/>
 </LinearLayout>
