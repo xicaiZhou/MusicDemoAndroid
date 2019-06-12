@@ -1,0 +1,73 @@
+知识点梳理：
+1.自定义nav_bar
+  1）、先创建nav_barLayout；
+  2）、在想要添加的界面（Layout）中通过 incloud：layout的方式引入；
+  3）、因为基本上所有界面都会有用到，所以在BaseActivity中统一进行处理。
+2.设置statusBar颜色：
+
+//values-v19
+<style name="TranslucentTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+</style>
+
+//values-v21
+<style name="TranslucentTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+</style>
+
+3.自定义属性declare-styleable:
+   1）、在values文件夹下面创建.xml文件,在xml文件中用declare-styleable特殊字段来定义自定义属性 name对应自定义类名
+       eg：
+           <declare-styleable name="InputView">
+               <!--reference:表示iuput_icon类型为某一资源ID-->
+               <attr name="input_icon" format="reference"></attr>
+               <attr name="input_hint" format="string"></attr>
+               <attr name="is_password" format="boolean"></attr>
+           </declare-styleable>
+   2）、创建自定义UI：创建一个java类继承自（extends）LineLayout或者其他布局方式，通过alt+回车键创建构造方法，然后创建对应的Layout。
+   3）、通过context的obtainStyledAttributes方法来获取自定义属性，返回值typedArray
+       eg: //第一个参数为文件名（values文件夹下对应的文件名），第二个参数是attrs文件里name为InputView的数据
+            TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.InputView);
+
+            //通过typedArray的方法来获取对应的自定义属性 第一个参数对应的都是你自定义的属性名，第二个参数是默认值
+            inputIcon = (int) typedArray.getResourceId(R.styleable.InputView_input_icon,R.mipmap.app);
+            inputHint = typedArray.getString(R.styleable.InputView_input_hint);
+            isPassword = typedArray.getBoolean(R.styleable.InputView_is_password, false);
+
+4.设置Activity跳转动画
+   1）、在values中的style文件中的name="AppTheme"中添加
+           <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+   2）、在style文件中 添加一个继承自android:style/Animation.Activity的style 假设name为AnimationActivity
+       eg：
+       <style name="AnimationActivity" parent="android:style/Animation.Activity的style">
+
+       </style>
+   3)、在name="AnimationActivity"的style中指定各种过渡动画时的xml
+       eg:常用的四种
+          <style name="AnimationActivity" parent="android:style/Animation.Activity的style">
+
+              <!--打开Activity,新进入的activity执行的动画-->
+              <item name="android:activityOpenEnterAnimation">@anim/open_enter</item>
+              <!--打开Activity，原Activity执行的动画-->
+              <item name="android:activityOpenExitAnimation">@anim/open_exit</item>
+              <!--退出Activity, 退出的Activity执行的动画-->
+              <item name="android:activityCloseExitAnimation">@anim/close_exit</item>
+              <!--退出Activity,重新显示的Activity执行动画-->
+              <item name="android:activityCloseEnterAnimation">@anim/close_enter</item>
+
+          </style>
+   4）、创建对应动画的xml（文件为set不是resources也不是selector或者shape）
+       eg:
+       <set>
+
+       </set>
+5.intent标识符
+        Intent intent = new Intent(context, LoginActivity.class);
+        //先清空task栈,并重新创建一个task
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+        //定义调转动画
+        ((Activity)context).overridePendingTransition(R.anim.open_enter, R.anim.open_exit);
