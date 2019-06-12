@@ -7,5 +7,9 @@
     <dimen name="infoSize">18sp</dimen>
     <dimen name="inputViewHeight">44dp</dimen>
     <dimen name="commitButtonHeight">44dp</dimen>
+    <dimen name="itemHeight">44dp</dimen>
     <dimen name="corners">5dp</dimen>
+    <dimen name="marginTabSize">4dp</dimen>
+    <dimen name="albumMarginSize">4dp</dimen>
+    <dimen name="playNumImgSize">18dp</dimen>
 </resources>

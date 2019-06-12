@@ -12,7 +12,7 @@ import java.util.TimerTask;
 
 import static android.content.ContentValues.TAG;
 
-public class welcomeActivity extends BaseActivity {
+public class  welcomeActivity extends BaseActivity {
 
     private Timer mTimer;
 
